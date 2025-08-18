@@ -122,6 +122,7 @@ for char in counts:
 # Sample output:
 # The area of the rectangle is 1256.66cm2
 # The volume of the cylinder is 1254.725cm3
+import math
 chieu_dai = float(input("(Câu 43) Hãy nhập chiều dài hình chữ nhật (cm): "))
 chieu_rong = float(input("(Câu 43) Hãy nhập chiều rộng hình chữ nhật (cm): "))
 ban_kinh = float(input("(Câu 43) Hãy nhập bán kính hình trụ (cm): "))
@@ -169,6 +170,93 @@ space = F.count(" ") #Đếm số khoảng trắng
 KQua = " "*space + F.replace(" ","") #" "*space --> Đưa hết khoảng trắng ra đầu; F.replace: Phần còn lại trong chuỗi + bỏ hết khoảng trắng
 print("Kết quả thu được là: ",KQua)
 # Câu 59: Write a Python program to find the maximum number of characters in a given string.
+G  = str(input("(Câu 59) Hãy nhập một chuỗi: "))
+max_char = "" #Ký tự xuất hiện nhiều nhất
+max_count = 0 #Số lần xuất hiện nhiều nhất
+for char in G:
+    count = G.count(char) #Đếm số lần ký tự c xuất hiện trong chuỗi
+    if count > max_count:
+        max_count = count
+        max_char = c
+print("Ký tự xuất hiện nhiều nhất là: ",max_char)
+print("Số lần xuất hiện: ",max_count)
+#Câu 61: Write a Python program to remove duplicate characters from a given string.
+H = str(input("(Câu 61) Hãy nhập một chuỗi: "))
+result = "" #Tạo một chuỗi rỗng để lưu kết quả
+for char in H:
+    if char not in result:
+        result += char #Nếu ký tự chưa có trong result thì thêm ký tự vào result
+print(f"Chuỗi {H} sau khi bỏ ký tự trùng: ",result)
+#Câu 62: Write a Python program to compute the sum of the digits in a given string.
+I = str(input("(Câu 62) Hãy nhập một chuỗi: "))
+tong = 0 #Biến để lưu tổng các chữ số
+for char in I:
+    if char.isdigit(): #Nếu ký tự đó là số
+        tong+= int(char)
+print(f"Tổng các chữ số trong chuỗi {I} là: ",tong)
+#Câu 71: Write a Python program to move all spaces to the front of a given string in a single traversal.
+J = str(input("(Câu 71) Hãy nhập một chuỗi: "))
+space = "" #Để chứa các khoảng trắng
+chars = "" #Để chứa các ký tự khoảng trắng
+for char in J:
+    if char == " ": #Nếu là khoảng trắng
+        space += char #Thêm vào biến space
+    else:
+        chars += char #Nếu không, thêm vào biến chars
+#Ghép khoảng trắng lên trước rồi đến phần còn lại
+KQUA = space + chars
+print(f"Chuỗi {J} sau khi chuyển: ",KQUA)
+#Câu 72: Write a Python program to remove all characters except a specified character from a given
+# string.
+K = str(input("(Câu 72) Hãy nhập một chuỗi: "))
+ch = str(input("Nhập ký tự cần giữ lại: "))
+#Giữ lại các ký tự trùng với ch
+RESULT = ""
+for char in K:
+    if char == ch:
+        RESULT += char
+print("Kết quả thu được là: ",RESULT)
+#Câu 73: Write a Python program to count Uppercase, Lowercase, special characters and numeric
+# values in a given string.
+L = str(input("(Câu 73) Hãy nhập một chuỗi: "))
+uppercase = 0
+lowercase = 0
+digits = 0
+special = 0
+for char in L:
+    if char.isupper():
+        uppercase += 1
+    elif char.islower():
+        lowercase += 1
+    elif char.isdigit():
+        digits += 1
+    else:
+        special += 1
+print("Chữ hoa: ",uppercase)
+print("Chữ thường: ",lowercase)
+print("Chữ số: ",digits)
+print("Ký tự đặc biệt: ",special)
+#Câu 77: Write a Python program to count the number of non-empty substrings of a given string.
+M = str(input("(Câu 77) Hãy nhập một chuỗi: "))
+M2 = len(M)
+#Công thức tính số chuỗi con (substring) không rỗng
+M3 = M2*(n+1)//2 #Sử dụng // do chia lấy phần nguyên
+print(f"Số lượng chuỗi con không rỗng của chuỗi {M} là:  ",M3)
+#Câu 79: Write a Python program to find the smallest and largest words in a given string.
+N = str(input("(Câu 79) Hãy nhập một chuỗi: "))
+N1 = N.split() #Tách chuỗi thành các từ
+#Giả sử ban đầu từ đầu tiên là ngắn nhất và dài nhất
+smallest = N1[0]
+largest = N1[0]
+for word in N1:
+    if len(word) < len(smallest):
+        smallest = word
+    if len(word) > len(largest):
+        largest = word
+print("Từ ngắn nhất: ",smallest)
+print("Từ dài nhất: ",largest)
+
+
 
 
 
