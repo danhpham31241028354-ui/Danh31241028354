@@ -255,7 +255,95 @@ for word in N1:
         largest = word
 print("Từ ngắn nhất: ",smallest)
 print("Từ dài nhất: ",largest)
-
+#Câu 80: Write a Python program to count the number of substrings with the same first and last characters in a given string.
+O = str(input("(Câu 80) Hãy nhập một chuỗi: "))
+COUNT = 0
+O1 = len(O)
+for i in range(O1):
+    for j in range(i,O1):
+        if O[i] == O[j]:
+            COUNT += 1
+print("Số lượng chuỗi con có ký tự đầu và cuối giống nhau là: ",COUNT)
+#Câu 84: Write a Python program to swap cases in a given string
+P = str(input("(Câu 84) Hãy nhập một chuỗi: "))
+KQL = P.swapcase() #Hoán đổi chữ hoa và chữ thường
+print(f"Chuỗi {P} sau khi hoán đổi là: ",KQL)
+#Câu 86: Write a Python program to delete all occurrences of a specified character in a given string
+Q = str(input("(Câu 86) Hãy nhập một chuỗi: "))
+Q1 = str(input("Hãy nhập ký tự muốn xóa: "))
+KQR = ""
+for char in Q:
+    if char != Q1: #Nếu ký tự khác với ký tự cần xóa thì giữ lại
+        KQR += char
+print("Chuỗi sau khi xóa là: ",KQR)
+#Câu 87: Write a Python program to find the common values that appear in two given strings
+R1 = str(input("(Câu 87) Hãy nhập chuỗi thứ nhất: "))
+R2 = str(input("(Câu 87) Hãy nhập chuỗi thứ hai: "))
+COMMON = ""
+for char in R1:
+    if (char in R2) and (char not in COMMON):
+        COMMON += char
+print(f"Các ký tự chung của chuỗi {R1} và chuỗi {R2} là: ",COMMON)
+#Câu 88: Write a Python program to check whether a given string contains a capital letter, a lower case letter, a number and a minimum length.
+S = str(input("(Câu 88) Hãy nhập một chuỗi: "))
+has_upper = False
+has_lower = False
+has_digit = False
+min_lenght = 8 #Đặt độ dài tối tiếu của chuỗi
+for char in S:
+    if char.isupper():
+        has_upper = True
+    if char.islower():
+        has_lower = True
+    if char.isdigit():
+        has_digit = True
+if has_upper and has_lower and has_digit and len(s) >= min_lenght:
+    print("Chuỗi hợp lệ: có in hoa, thường, số và đủ độ dài.")
+else:
+    print("Chuỗi không hợp lệ.")
+#Câu 89: Write a Python program to remove unwanted characters from a given string.
+T = str(input("(Câu 89) Hãy nhập một chuỗi: "))
+unwanted = str(input("Hãy nhập ký tự không muốn: "))
+RS = "".join(char for char in T if char not in unwanted)
+print(f"Chuỗi {T} sau khi loại bỏ {unwanted} là: ",RS)
+#Câu 90: Write a Python program to remove duplicate words from a given string.
+U = str(input("(Câu 90) Hãy nhập chuỗi: "))
+U1 = U.split()
+RST = " ".join(dict.fromkeys(U1)) #Loại bỏ từ trùng lặp nhưng vẫn giữ thứ tự ban đầu
+print(f"Chuỗi {U} sau khi loại bỏ thứ tự trùng lặp là: ",RST)
+#Câu 93: Write a Python program to extract numbers from a given string.
+V = str(input("(Câu 93) Hãy nhập một chuỗi: "))
+V1 = [] #Tạo danh sách rỗng để chứa các số
+for word in V.split():
+    if word.isdigit(): #Nếu từ là số
+        V1.append(int(word)) #Chuyển về int và thêm vào danh sách --> append
+print(f"Các số trong chuỗi {V} là: ",V1)
+#Câu 96: Write a Python program to convert a given string to Camelcase.
+Y = str(input("(Câu 96) Hãy nhập một chuỗi: "))
+Y1 = Y.split()
+camel = ""
+for word in Y1:
+    camel += word.capitalize() #Viết hoa chữ cái đầu của từng chữ
+print("Chuỗi dạng CamelCase: ",camel)
+#Câu 97: Write a Python program to convert a given string to Snake case.
+Z = str(input("(Câu 97) Hãy nhập một chuỗi: "))
+snake = Z.lower().replace(" ","_") #Nối các từ thành dấu gạch dưới và chuyển thành chữ thường
+print("Chuỗi dạng Snake Case: ",snake)
+#Câu 98: Write a Python program to decapitalize the first letter of a given string.
+C98 = str(input("(Câu 98) Hãy nhập một chuỗi: "))
+if C98: #Kiểm tra chuỗi không rỗng
+    RSL = C98[0].lower() + C98[1:] #Chuyển ký tự đầu thành chữ thường,giữ nguyên các ký tự sau
+    print(f"Chuỗi {C98} sau khi chuyển là: ",RSL)
+else:
+    print("Chuỗi rỗng")
+#Câu 99: Write a Python program to split a multi-line string into a list of lines.
+C99 = str(input("(Câu 99) Nhập các dòng, cách nhau bằng dấu |:"))
+lines = C99.split("|") #Tách chuỗi thành danh sách các dòng
+print(lines)
+#Câu 10: Write a Python program to change a given string to a newly string where the first and last chars have been exchanged.
+C10 = str(input("(Câu 10) Hãy nhập một chuỗi: "))
+chuoi_moi = C10[-1] + C10[1:-1]  + C10[0]
+print(f"Chuỗi {C10} sau khi hoán đổi ký tự đầu và cuối là: ",chuoi_moi)
 
 
 
