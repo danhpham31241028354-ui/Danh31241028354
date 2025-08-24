@@ -38,4 +38,36 @@ while True: #Chơi nhiều ván cho đến khi stop
     response = input("Do you want to play again? (Please type [Y/N] or [y/n]: ")
     if response == "N" or response == "n":
         break
-
+# Write a game that simulate rolling a pair of dice.
+# -If the sum of two faces is greater than 5 à “Tài”
+# -Otherwise  à “Xỉu”
+# -User ask for guessing “Tài” or “Xỉu”
+# -Match the results
+# -After one turn, ask user for continue playing game.
+# -**** Extend the game by asking the user to enter an amount of money, then continue playing until the user runs out of money or the user stops playing. Statistics of results.
+print("---------------------CÂU 2---------------------")
+import random
+money = int(input("Hãy nhập số tiền bắt đầu: "))
+win = lose = 0
+while money > 0:
+    print(f"You have {money} $")
+    bet = int(input("Nhập số tiền bạn cược: "))
+    if bet > money:
+        print("Không đủ tiền để chơi")
+        continue
+    doan = input("Hãy đoán 'Tài' hay 'Xỉu: ")
+    total = random.randint(1,6) + random.randint(1,6)
+    ket_qua = "Tài" if total > 5 else "Xỉu"
+    print(f"Tổng của xúc sắc là {total}. Kết quả là {ket_qua}")
+    if doan == ket_qua:
+        money += bet
+        win += 1
+        print("Bạn đã thắng")
+    else:
+        money -= bet
+        lose += 1
+        print("Bạn đã thua")
+    if money <= 0 or input("Play again?(Y/N)"):
+        break
+print("-----------RESULT-----------")
+print(f"Thắng: {win}, Thua: {lose}, Tiền còn lại: {money} $)")
