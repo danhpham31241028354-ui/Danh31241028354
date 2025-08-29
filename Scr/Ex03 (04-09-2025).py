@@ -21,17 +21,17 @@ def ex16():
         C16.append(i**2)
         KQ_cuoi_cung = C16[:5] + C16[-5:]
     print("Danh sách chỉ gồm 5 số đầu và 5 số cuối là: ",KQ_cuoi_cung)
-def ex17():
-    C17_1 = [1,2,3,4,5,6,7,8,9,10]
-    C17_2 = [2,4,6,8,10,12]
+def ex19():
+    C19_1 = [1,2,3,4,5,6,7,8,9,10]
+    C19_2 = [2,4,6,8,10,12]
     different_1 = []
     different_2 = []
-    for i in C17_1:
-        if i not in C17_2:
+    for i in C19_1:
+        if i not in C19_2:
             different_1.append(i)
     print("Các phần tử có trong list 1 nhưng có trong list 2 là: ",different_1)
-    for i in C17_2:
-        if i not in C17_1:
+    for i in C19_2:
+        if i not in C19_1:
             different_2.append(i)
     print("Các phần tử có trong list 2 nhưng có trong list 1 là: ", different_2)
 def ex21():
