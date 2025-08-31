@@ -126,5 +126,111 @@ def ex44():
         C44_group_nho = C44_number[i:i+5]
         C44_group.append(C44_group_nho)
     print("Danh sách mới sau khi nhóm là: ",C44_group)
+# 46. Write a Python program to select the odd items from a list.
+def ex46():
+    C46 = [1,2,3,4,5,6,7,8,9,10]
+    C46_le = []
+    for i in C46:
+        if i % 2 != 0:
+            C46_le.append(i)
+    print("Danh sách các phần tử lẻ là: ",C46_le)
+# 47. Write a Python program to insert an element before each element of a list.
+def ex47():
+    C47 = [1,2,3,4,5]
+    element = 0
+    C47_new_list = []
+    for i in C46:
+        C47_new_list.append(element)
+        C47_new_list.append(i)
+    print("Danh sách mới là: ",C47_new_list)
+# 48. Write a Python program to print nested lists (each list on a new line) using the print() function.
+def ex48():
+    C48 = [[1,2,3],[4,5,6,7,8],[9,10]]
+    for sublist in C48:
+        print(sublist)
+# 51. Write a Python program to split a list every Nth element
+def ex51():
+    C51 = ["P","H","A","M","T","H","A","N","H","D","A","N","H"]
+    C51_group = []
+    for st in range (0,len(C51),5):
+        C51_group_nho = C51[st:st+5]
+        C51_group.append(C51_group_nho)
+    print("Danh sách mới sau khi nhóm là: ",C51_group)
+# 52. Write a Python program to compute the difference between two lists.
+def ex52():
+    C52_1 = ["red", "orange", "green", "blue", "white"]
+    C52_2 =  ["black", "yellow", "green", "blue"]
+    khac_1 = []
+    khac_2 = []
+    for st in C52_1:
+        if st not in C52_2:
+            khac_1.append(st)
+    print("Color 1 - Color 2: ",khac_1)
+# 53. Write a Python program to create a list with infinite elements.
+def infinite_list():
+    num = 1
+    while True:
+        yield num
+        num += 1
+gen = infinite_list()
+for i in range(20):
+    print(next(gen))
+# 54. Write a Python program to concatenate elements of a li
+def ex54():
+    C54 = ["Pham","Thanh","Danh"]
+    print("Danh sách mới sau khi nối là: ","".join(C54))
+# 56. Write a Python program to convert a string to a list
+def ex56():
+    C56 = "Harrypham"
+    C56_tach = list(C56)
+    print(f"Chuỗi {C56} sau khi tách thành danh sách là: {C56_tach} ")
+# 57. Write a Python program to check if all items in a given list of strings are equal to a given string.
+def ex57():
+    fruits = ["apple","apple","apple"]
+    check = "cherry"
+    Dung = True
+    for item in fruits:
+        if item != check:
+            Dung = False
+    if Dung:
+        print("Danh sách đã cho đúng với chuỗi cần check")
+    else:
+        print("Danh sách đã cho khác với chuỗi cần check")
+# 58. Write a Python program to replace the last element in a list with another list.
+# Sample data : [1, 3, 5, 7, 9, 10], [2, 4, 6, 8]
+# Expected Output: [1, 3, 5, 7, 9, 2, 4, 6, 8]
+def ex58():
+    C58_1, C58_2 = [1, 3, 5, 7, 9, 10], [2, 4, 6, 8]
+    C58_1_moi = C58_1[:-1]
+    C58_1_moi.extend(C58_2)
+    print("Danh sách sau khi gộp vào là: ",C58_1_moi)
+def ex59():
+    C59 = [1,2,3,4,5]
+    C59_n = int(input("Hãy nhập vị trí bạn muốn kiểm tra: "))
+    if C59_n >= 0 and C59_n < len(C59):
+        print("Phần tử đó tồn tại trong danh sách")
+    else:
+        print("Phần tử đó không tồn tại trong danh sách")
+# 62. Write a Python program to print a list of space-separated elements.
+def ex62():
+    C62 = [1,2,3,4,"Thanh","Danh"]
+    print("Các phần tử của danh sách cách nhau bởi khoảng trống là: "," ".join(str(x) for x in C62))
+# 63. Write a Python program to insert a given string at the beginning of all items in a list.
+# Sample list : [1,2,3,4], string : emp
+# Expected output : ['emp1', 'emp2', 'emp3', 'emp4']
+def ex63():
+    C63 = [1,2,3,4]
+    C63_str = input("Hãy nhập một chuỗi: ")
+    C63_moi = []
+    for i in C63:
+        C63_moi.append(C63_str + str(i))
+    print("Danh sách sau khi nối với chuỗi được nhập là: ",C63_moi)
+# 64. Write a Python program to iterate over two lists simultaneously. --> Dùng zip() để lặp đồng thời hai danh sách
+def ex64():
+    C64_1 = [1,2,3,4]
+    C64_2 = ["a","b","c","d"]
+    for x, y in zip(C64_1,C64_2):
+        print(x,y)
 
-ex44()
+ex64()
+
