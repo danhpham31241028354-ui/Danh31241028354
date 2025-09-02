@@ -1,4 +1,85 @@
 import random
+# 1. Write a Python program to sum all the items in a list.
+import random
+lst = []
+for i in range(1,20):
+    lst.append(random.randint(1,50))
+def print_list():
+    print(lst)
+def ex_01():
+    sum = 0
+    for item in lst:
+        sum+= item
+    print(f"Sum of all characters in a list is {sum} ")
+# 2. Write a Python program to multiply all the items in a list.
+def ex_02():
+    multiply = 1
+    for item in lst:
+        multiply *= item
+    print(f"The multiplication of all characters in a list is {multiply}")
+# 3. Write a Python program to get the largest number from a list.
+def ex_03():
+    largest = lst[0]
+    for item in lst:
+        if item > largest:
+            largest = item
+    print(f"The largest number of the list is {largest}")
+# 4. Write a Python program to get the smallest number from a list.
+def ex_04():
+    smallest = lst[0]
+    for item in lst:
+        if item < smallest:
+            smallest = item
+    print(f"The smallest number of the list is {smallest}")
+# 5. Write a Python program to count the number of strings from a given list of strings. The string length is 2 or more and the first and last characters are the same.
+# Sample List : ['abc', 'xyz', 'aba', '1221']
+# Expected Result : 2
+def ex_05():
+    str = ["saghsahsa","hsahsah","shsbsbhs"]
+    dem = 0
+    for st in str:
+        if len(st) < 2:
+            continue
+    if st[0] == st[-1*len(st)]:
+        dem+=1
+    print(f"Result: {dem}")
+#7. Write a Python program to remove duplicates from a list.
+def ex_07():
+    for item in lst:
+        while lst.count(item) > 1: #Lọc toàn bộ chuỗi --> Dùng if chỉ loại được 1 phần tử lặp, còn các phần từ khác nếu có duplicates thì vẫn lặp
+            lst.remove(item)
+    print(f"The list after removing duplicates is: {lst} ")
+# 8.Write a Python program to check if a list is empty or not.
+def ex_08():
+    if len(lst) == 0:
+        print("The list is empty")
+    else:
+        print("The list isn't empty")
+# 9.Write a Python program to clone (nhân bản) or copy a list
+def ex_09():
+    lst_duoc_copy = lst.copy()
+    print(f"List after being copied is {lst_duoc_copy}")
+    lst_duoc_nhan_ban = lst*2
+    print(f"List after being cloned is {lst_duoc_nhan_ban}")
+# 10. Write a Python program to find the list of words that are longer than n from a
+# given list of words.
+def ex_10():
+    chuoi_tu_nhap = ["pham","thanh","danh","ptd","hr"]
+    n = int(input("Please type the number of characters you want to overcome: "))
+    chuoi_moi_sau_kiem_tra = []
+    for st in chuoi_tu_nhap:
+        if len(st) > n:
+            chuoi_moi_sau_kiem_tra.append(st)
+    print(f"List of words that are longer than {n} from {chuoi_tu_nhap} is {chuoi_moi_sau_kiem_tra}")
+# 12. Write a Python program to print a specified list after removing the 0th, 4th
+# and 5th elements.
+# Sample List : ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+# Expected Output : ['Green', 'White', 'Black']
+def ex_12():
+    chuoi_nhap =  ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+    chuoi_nhap_moi = chuoi_nhap[1:4]
+    print(chuoi_nhap_moi)
+print_list()
 # Câu 14: Write a Python program to print the numbers of a specified list after removing
 # even numbers from it.
 def ex14():
@@ -231,6 +312,124 @@ def ex64():
     C64_2 = ["a","b","c","d"]
     for x, y in zip(C64_1,C64_2):
         print(x,y)
+# 65. Write a Python program to move all zero digits to the end of a given list of
+# numbers.
+# Expected output:
+# Original list:
+# [3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
+# Move all zero digits to end of the said list of numbers:
+# [3, 4, 6, 2, 6, 7, 6, 9, 10, 7, 4, 4, 5, 3, 2, 9, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+def ex65():
+    C65 = [3, 4, 0, 0, 0, 6, 2, 0, 6, 7, 6, 0, 0, 0, 9, 10, 7, 4, 4, 5, 3, 0, 0, 2, 9, 7, 1]
+    C65_ket_qua = [x for x in C65 if x != 0] + [0]*C65.count(0) #+ [0]: in ra thêm danh sách có số 0, *count(0): có bao nhiêu số 0 ở danh sách cũ thì danh sách mới có bấy nhiêu số 0
+    print("Kết quả là: ", C65_ket_qua)
+# 66. Write a Python program to find the list in a list of lists whose sum of elements
+# is the highest.
+# Sample lists: [1,2,3], [4,5,6], [10,11,12], [7,8,9]
+# Expected Output: [10, 11, 12]
+def ex66():
+    C66 = [[1,2,3], [4,5,6], [10,11,12], [7,8,9]]
+    C66_ket_qua = max(C66, key = sum) #max(iterable, key = function) + iterable: danh sách; key: hàm dùng để so sánh kết quả
+    print("Danh sách có kết quả lớn nhất là: ",C66_ket_qua)
+# 67. Write a Python program to find all the values in a list that are greater than a specified number.
+def ex67():
+    C67 = [1,2,3,4,5,6,7,8,9,10]
+    C67_num = 3
+    C67_moi = []
+    for i in C67:
+        if i > C67_num:
+            C67_moi.append(i)
+    print("Tất cả các phần tử trong danh sách lớn hơn số đã cho là: ",C67_moi)
+# 68. Write a Python program to extend a list without appending.
+# Sample data: [10, 20, 30]
+# [40, 50, 60]
+# Expected output : [40, 50, 60, 10, 20, 30]
+def ex68():
+    C68_1 = [10, 20, 30]
+    C68_2 = [40, 50, 60]
+    C68_1.extend(C68_2)
+    print("Danh sách mới là: ",C68_1)
+# 73. Write a Python program to remove consecutive (following each other
+# continuously) duplicates (elements) from a given list.
+# Original list:[0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+# After removing consecutive duplicates:
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 4]
+def ex73():
+    C73 = [0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+    C73_ket_qua = []
+    for item in C73:
+        if not C73_ket_qua or item != C73_ket_qua[-1]:
+            C73_ket_qua.append(item)
+    print(C73_ket_qua)
+# 74. Write a Python program to pack consecutive duplicates of a given list of
+# elements into sublists.
+# Original list:
+# [0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+# After packing consecutive duplicates of the said list elements into sublists:
+# [[0, 0], [1], [2], [3], [4, 4], [5], [6, 6, 6], [7], [8], [9], [4, 4]]
+def ex74():
+    C74 = [0, 0, 1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 8, 9, 4, 4]
+    C74_ket_qua = []
+    for item in C74:
+        if not C74_ket_qua or item != C74_ket_qua[-1][-1]:
+            C74_ket_qua.append([item])
+    print(C74_ket_qua)
+# 78. Write a Python program to split a given list into two parts where the length of
+# the first part of the list is given.
+# Original list:
+# [1, 1, 2, 3, 4, 4, 5, 1]
+# Length of the first part of the list: 3
+# Splited the said list into two parts:
+# ([1, 1, 2], [3, 4, 4, 5, 1])
+def ex78():
+    C78 = [1, 1, 2, 3, 4, 4, 5, 1]
+    n = 3
+    C78_1 = C78[:n]
+    C78_2 = C78[n:]
+    print("Danh sách thứ nhất sau khi tách: ",C78_1)
+    print("Danh sách thứ hai sau khi tách: ",C78_2)
+# 79. Write a Python program to remove the K'th element from a given list, and
+# print the updated list.
+# Original list:
+# [1, 1, 2, 3, 4, 4, 5, 1]
+# After removing an element at the kth position of the said list:
+# [1, 1, 3, 4, 4, 5, 1]
+def ex79():
+    C79 = [1, 1, 2, 3, 4, 4, 5, 1]
+    del C79[2]
+    print("Danh sách mới sau khi xóa phần tử thứ hai là: ",C79)
+# 80. Write a Python program to insert an element at a specified position into a
+# given list.
+# Original list:
+# [1, 1, 2, 3, 4, 4, 5, 1]
+# After inserting an element at kth position in the said list:
+# [1, 1, 12, 2, 3, 4, 4, 5, 1]
+def ex80():
+    C80 = [1, 1, 2, 3, 4, 4, 5, 1]
+    C80.insert(2,12)
+    print("Danh sách sau khi chèn thêm phần tử vào vị trí thứ 2 là: ",C80)
+# 81. Write a Python program to extract a given number of randomly selected
+# elements from a given list.
+# Original list:
+# [1, 1, 2, 3, 4, 4, 5, 1]
+# Selected 3 random numbers of the above list: --> Dùng random.sample
+# [4, 4, 1]
+def ex81():
+    C81 = [1, 1, 2, 3, 4, 4, 5, 1]
+    C81_chon = random.sample(C81,3)
+    print(f"3 phần tử được chọn từ danh sách là {C81_chon}")
+# 102. Write a Python program to extract specified size of strings from a give list of
+# string values.
+# Original list:
+# [' Python', 'list', 'exercises', 'practice', 'solution']
+# length of the string to extract:
+# 8
+# After extracting strings of specified length from the said list:
+# ['practice', 'solution']
+def ex102():
+    C102 = ['Python', 'list', 'exercises', 'practice', 'solution']
+    length_to_extract = 8
+    C102_result = [s.strip() for s in C102 if len(s.strip()) == length_to_extract]
+    print(C102_result)
 
-ex64()
-
+ex102()
